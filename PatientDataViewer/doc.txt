@@ -1,0 +1,5 @@
+mvn install
+mvn clean spring-boot:run
+
+go to
+http://localhost:8080/pwebb/encounters
