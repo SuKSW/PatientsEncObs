@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @ComponentScan("impl")
 @RestController
-@RequestMapping("/encounters")
-public class EncounterController {
+@RequestMapping("/observations")
+public class ObservationController {
 
     @RequestMapping(method = RequestMethod.GET)
-    JSONObject getAllEncounters() throws JsonFileReadingException {
+    JSONObject getAllObservations() throws JsonFileReadingException {
         JsonFileReader jsonFileReader = new JsonFileReader();
         JSONObject jsonObject = jsonFileReader.readJsonObjectFromFile(
-                System.getProperty("user.dir") + Config.encountersJsonFile);
+                System.getProperty("user.dir") + Config.observationJsonFile);
         return jsonObject;
     }
 }
