@@ -1,7 +1,7 @@
 mvn install
-mvn clean spring-boot:run
+mvn clean spring-boot:run -Dserver.port=9000
 
 endpoints
-http://localhost:8080/patients
-http://localhost:8080/encounters
-http://localhost:8080/observations
+http://localhost:9000/patients
+http://localhost:9000/encounters
+http://localhost:9000/observations
