@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import PatientTable from './Table/PatientTable';
 
 class App extends Component {
@@ -21,10 +20,7 @@ class App extends Component {
                     This application contains information of patients, related encounters and observations retrieved from "http://hapi.fhir.org/baseDstu3"
                 </p>
             </header>
-            <MuiThemeProvider>
-                <PatientTable />
-            </MuiThemeProvider>
-
+            <PatientTable />
         </div>
         );
     }

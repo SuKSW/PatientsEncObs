@@ -1,11 +1,19 @@
 .p-table {
-     border: 1px solid gray;
-     overflow: scroll;
-     margin: 0px !important;
-     padding: 0px !important;
+     overflow: scroll !important;
 }
 
-.p-table-column {
-    padding: 0px 0px 0px 0px !important;
-    margin: 0px !important;
+.p-table-cell-7 {
+    overflow: scroll !important;
 }
+
+.p-table-cell {
+    height: 10px !important;
+    margin: 0px !important;
+    backgroundColor: cream !important;
+}
+
+.p-table-head {
+    backgroundColor: black !important;
+    color: white !important;
+}
+

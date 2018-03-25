@@ -1,49 +1,11 @@
 import React from 'react';
 
-import RaisedButton from 'material-ui/RaisedButton';
-import CircularProgress from 'material-ui/CircularProgress';
-import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn, } from 'material-ui/Table';
+import { CircularProgress } from 'material-ui/Progress';
+import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 
 import Patient from './Row/Patient';
 import Requests from "../Requests";
 import './Table.css';
-
-const tableHeadings = [
-    {
-        heading: 'ID',
-    },
-    {
-        heading: 'Last Updated',
-    },
-    {
-        heading: 'Name',
-    },
-    {
-        heading: 'Active',
-    },
-    {
-        heading: 'Gender',
-    },
-    {
-        heading: 'Date of Birth',
-    },
-    {
-        heading: 'Multiple Birth',
-    },
-    {
-        heading: 'Diseased',
-    },
-    {
-        heading: 'Communication',
-    },
-    {
-        heading: 'Contact',
-    },
-    {
-        heading: 'Marital Status',
-    },
-];
-
 
 class PatientTable extends React.Component {
 
@@ -74,7 +36,7 @@ class PatientTable extends React.Component {
     }
 
     render() {
-        const {viewablePatients} = this.state;
+        const {viewablePatients, showEncountersOf} = this.state;
         if (viewablePatients === null) {
             return (
                 <div><CircularProgress /></div>
@@ -82,26 +44,30 @@ class PatientTable extends React.Component {
         }
         return (
             <Table className="p-table">
-                <TableHeader className="p-table-column"
-                    displaySelectAll = {false}
-                    adjustForCheckbox = {false}
-                    >
-                    {tableHeadings.map(row => {
-                        return (
-                            <TableHeaderColumn className="p-table-column">{ row.heading }</TableHeaderColumn>
-                        );
-                    })}
-                </TableHeader>
-                <TableBody
-                    displayRowCheckbox = {false}
-                    >
+                <TableHead>
                     <TableRow>
-                    {viewablePatients.map(row => {
+                        <TableCell className="p-table-cell-7">  ID            </TableCell>
+                        <TableCell className="p-table-cell-7">  Last Updated  </TableCell>
+                        <TableCell className="p-table-cell-7">  Name          </TableCell>
+                        <TableCell className="p-table-cell-7">  Active        </TableCell>
+                        <TableCell className="p-table-cell-7">  Gender        </TableCell>
+                        <TableCell className="p-table-cell-7">  Date of Birth </TableCell>
+                        <TableCell className="p-table-cell-7">  Multiple Birth</TableCell>
+                        <TableCell className="p-table-cell-7">  Diseased      </TableCell>
+                        <TableCell className="p-table-cell-7">  Communication </TableCell>
+                        <TableCell className="p-table-cell-7">  Contact       </TableCell>
+                        <TableCell className="p-table-cell-7">  Marital Status</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {viewablePatients.map((row,index) => {
                         return (
-                            <Patient patient = {row.resource} />
+                            <Patient
+                                patientResource = {row.resource}
+                                patientIndex = {index}
+                            />
                         );
                     })}
-                    </TableRow>
                 </TableBody>
             </Table>
         );

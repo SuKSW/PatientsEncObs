@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  margin-right: 5%;
+  margin-right: 5% !important;
   margin-left: 5%;
   padding: 0px 0px;
 }
