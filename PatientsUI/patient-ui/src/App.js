@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import PatientTable from './Table/PatientTable';
+import PatientTable from './Table/PatientTable/PatientTable';
 
 class App extends Component {
 
@@ -13,10 +13,10 @@ class App extends Component {
 
     render() {
         return (
-        <div className="App">
-            <header className="App-header">
-                <h1 className="App-title">Patients Information</h1>
-                <p className="App-intro">
+        <div class="App">
+            <header class="App-header">
+                <h1 class="App-title">Patients Information</h1>
+                <p class="App-intro">
                     This application contains information of patients, related encounters and observations retrieved from "http://hapi.fhir.org/baseDstu3"
                 </p>
             </header>

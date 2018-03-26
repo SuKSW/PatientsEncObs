@@ -1,0 +1,14 @@
+.nested-table-cell {
+    height: 10px;
+    margin: 0px;
+    border: 1px;
+}
+
+.nested-table tr:nth-child(odd) {
+    background-color: #eee;
+}
+
+
+
+
+
