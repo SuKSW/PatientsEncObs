@@ -20,28 +20,34 @@ class NestedTables extends React.Component {
             if (object.length > 0) {
                 return (
                     object.map(element => {
-                        if (Array.isArray(element) || (Object.keys(element).length > 0)) {
+                        if (Array.isArray(element)) {
+                            return(
+                                <tr class="nested-table-cell">
+                                   {<NestedTables object={element} />}
+                                </tr>
+                            );
+                        } else if (Object.keys(element).length > 0) {
                             return(
                                 <td class="nested-table-cell">
                                    {<NestedTables object={element} />}
                                 </td>
                             );
                         } else {
-                            return (<td class="nested-table-cell">{element}</td>);
+                            return element;
                         }
                     })
                  );
             } else return null;
          } else {
             if ((typeof object)==="string" || (typeof object)==="number" ||
-                 (typeof object)==="boolean") return (<td class="nested-table-cell">{object}</td>);
-             if (!(Object.keys(object).length > 0)) return null;
+                 (typeof object)==="boolean") return object;
+             if ((typeof object)==="undefined" || (Object.keys(object).length < 1)) return null;
              return (
                  <table class="nested-table">
                       <tr>
                          { (Object.keys(object).length > 0) &&
                              Object.keys(object).map(key => {
-                                 return (<td class="nested-table-cell">{key}</td>);
+                                 return (<th class="nested-table-cell">{key}</th>);
                              })
                          }
                       </tr>

@@ -1,0 +1,41 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table table.encounter-table table.observation-table th {
+    text-align: left;
+    height: 15px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: #ffbb99;
+}
+
+table table.encounter-table table.observation-table td {
+    text-align: left;
+    padding: 2px;
+    background-color: #ffe6cc;
+}
+
+table table.encounter-table table.observation-table tr:hover {
+    background-color: #ffeecc;
+}
+
+.arrow-up{
+    transform: rotate(0deg);
+   -webkit-transform: rotate(0deg);
+   -ms-transform: rotate(0deg);
+   transition: transform 0.1s linear;
+}
+
+.arrow-down{
+   transform: rotate(90deg);
+   -webkit-transform: rotate(90deg);
+   -ms-transform: rotate(90deg);
+   transition: transform 0.1s linear;
+}
+
+.no-observations {
+    background-color: #ffbb99;
+}

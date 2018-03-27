@@ -10,12 +10,15 @@ class PatientTable extends React.Component {
         super(props);
         this.state = {
             patients: null,
-            viewablePatients: null,
+            encounters_object: null,
+            observations_object: null,
         };
     }
 
     componentDidMount() {
         this.requestPatients();
+        this.requestEncounters();
+        this.requestObservations();
     }
 
     requestPatients = () => {
@@ -26,15 +29,38 @@ class PatientTable extends React.Component {
                 const array = data.patients;
                 this.setState({
                     patients: array,
-                    viewablePatients: array,
+                });
+            }
+        )
+    }
+
+    requestEncounters = () => {
+        const requests = new Requests();
+        const promised_encounters = requests.getEncounters();
+        promised_encounters.then(
+            encounters_object => {
+                this.setState({
+                    encounters_object: encounters_object,
+                });
+            }
+        )
+    }
+
+    requestObservations = () => {
+        const requests = new Requests();
+        const promised_observations = requests.getObservations();
+        promised_observations.then(
+            observations_object => {
+                this.setState({
+                    observations_object: observations_object,
                 });
             }
         )
     }
 
     render() {
-        const {viewablePatients, showEncountersOf} = this.state;
-        if (viewablePatients === null) {
+        const { patients, encounters_object, observations_object } = this.state;
+        if ( patients === null || encounters_object === null || observations_object === null ) {
             return (
                 <div>Loading...</div>
             );
@@ -42,7 +68,7 @@ class PatientTable extends React.Component {
         return (
             <table class="patient-table">
                 <tr>
-                    <th></th>
+                    <th>                </th>
                     <th>  ID            </th>
                     <th>  Last Updated  </th>
                     <th>  Name          </th>
@@ -55,11 +81,13 @@ class PatientTable extends React.Component {
                     <th>  Contact       </th>
                     <th>  Marital Status</th>
                 </tr>
-                {viewablePatients.map((row,index) => {
+                {patients.map((patient) => {
+                    let encountersArray = encounters_object[patient.resource.id];
                     return (
                         <Patient
-                            patientResource = {row.resource}
-                            patientIndex = {index}
+                            patientResource = {patient.resource}
+                            encounters = {encountersArray}
+                            observations_object = {observations_object}
                         />
                     );
                 })}
