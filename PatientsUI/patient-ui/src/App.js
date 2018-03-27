@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import PatientTable from './Table/PatientTable/PatientTable';
+import PrettyPatientTable from './PrettyTable/PatientTable/PatientTable';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {open: false};
-  }
+    constructor(props) {
+        super(props);
+    }
 
-    handleToggle = () => this.setState({open: !this.state.open});
 
     render() {
         return (
@@ -20,6 +19,9 @@ class App extends Component {
                     This application contains information of patients, related encounters and observations retrieved from "http://hapi.fhir.org/baseDstu3"
                 </p>
             </header>
+            <h2>Pretty Patient Table</h2>
+            <PrettyPatientTable />
+            <h2>Raw Data Patient Table</h2>
             <PatientTable />
         </div>
         );
