@@ -12,7 +12,7 @@ mvn clean spring-boot:run -Dserver.port=9000
 
 ### To start the client  
 (open another Command Prompt Terminal while inside the cloned directory - PatientsEncObs)  
-cd PatientsUI\patient-ui
+cd PatientsUI\patient-ui  
 npm install  
 npm start
 
