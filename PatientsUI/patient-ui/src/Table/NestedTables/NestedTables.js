@@ -9,6 +9,14 @@ class NestedTables extends React.Component {
         this.state = {
             object: this.props.object,
         }
+        this.getBoolean = this.getBoolean.bind(this);
+    }
+
+    getBoolean = (content) => {
+        if (content === null) return null;
+        else if (content) return "true";
+        else if (!content) return "false";
+        else return null;
     }
 
     render() {
@@ -39,8 +47,8 @@ class NestedTables extends React.Component {
                  );
             } else return null;
          } else {
-            if ((typeof object)==="string" || (typeof object)==="number" ||
-                 (typeof object)==="boolean") return object;
+            if ((typeof object)==="string" || (typeof object)==="number") return object;
+            if ((typeof object)==="boolean") return this.getBoolean(object);
              if ((typeof object)==="undefined" || (Object.keys(object).length < 1)) return null;
              return (
                  <table class="nested-table">

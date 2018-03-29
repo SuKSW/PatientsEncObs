@@ -66,7 +66,7 @@ class PatientTable extends React.Component {
             );
         }
         return (
-            <table class="patient-table">
+            <table class="p-table">
                 <tr>
                     <th>                </th>
                     <th>  ID            </th>

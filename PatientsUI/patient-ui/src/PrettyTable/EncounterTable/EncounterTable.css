@@ -4,7 +4,7 @@ table {
 }
 
 table table.encounter-table th {
-    text-align: left;
+    text-align: right;
     height: 15px;
     padding-left: 8px;
     padding-right: 8px;
@@ -13,9 +13,10 @@ table table.encounter-table th {
 }
 
 table table.encounter-table td {
-    text-align: left;
-    padding: 2px;
+    text-align: right;
+    padding: 5px 8px 5px 8px;
     background-color: #fff2e6;
+    border: 1px solid #ffd9b3;
 }
 
 table table.encounter-table tr:hover {
@@ -23,7 +24,7 @@ table table.encounter-table tr:hover {
 }
 
 table table.encounter-table tr {
-    border-bottom: 1px solid #ffd9b3;
+
 }
 
 .arrow-up {

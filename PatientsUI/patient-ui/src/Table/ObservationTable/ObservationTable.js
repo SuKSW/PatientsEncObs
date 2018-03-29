@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Observation from './Observation';
-import Requests from "../../Requests";
 import './ObservationTable.css';
 
 class ObservationTable extends React.Component {
@@ -19,7 +18,7 @@ class ObservationTable extends React.Component {
             return (
                 <div>Loading...</div>
             );
-        } else if ( typeof(observations) == "undefined" ) {
+        } else if ( typeof(observations) === "undefined" ) {
             return (
                 <div class="no-observations">No observations available</div>
             );

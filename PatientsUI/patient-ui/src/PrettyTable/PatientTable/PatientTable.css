@@ -1,28 +1,41 @@
-table {
-    border-collapse: collapse;
-    width: 100%;
+.table-area {
+    width: 70%;
 }
 
-table th {
-    text-align: left;
-    height: 15px;
+.pp-table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #f2f2f2;
+    font-size: 14px;
+}
+
+table.pp-table th {
+    text-align: center;
+    white-space: nowrap;
     padding-left: 8px;
     padding-right: 8px;
     background-color: #ffb366;
-
+    font-weight: normal;
+    color: white;
+    border: 1px solid #f2f2f2;
 }
 
-table.patient-table tr:hover {
+table.pp-table tr:hover {
     background-color: #f2f2f2;
 }
 
-table td {
-    text-align: left;
-    padding: 2px;
+table.pp-table td {
+    text-align: right;
+    padding: 5px 8px 5px 8px;
 }
 
-table tr {
+table.pp-table tr {
     border-bottom: 1px solid #f2f2f2;
+    white-space: nowrap;
+}
+
+.arrow {
+    width: 50px;
 }
 
 .arrow-up{

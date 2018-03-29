@@ -1,27 +1,29 @@
-table {
+.p-table {
     border-collapse: collapse;
-    width: 100%;
+    font-size: 14px;
 }
 
-table th {
-    text-align: left;
+table.p-table th {
+    text-align: center;
     height: 15px;
     padding-left: 8px;
     padding-right: 8px;
     background-color: #ffb366;
-
+    font-weight: normal;
+    color: white;
+    border: 1px solid #f2f2f2;
 }
 
-table.patient-table tr:hover {
+table.p-table tr:hover {
     background-color: #f2f2f2;
 }
 
-table td {
+table.p-table td {
     text-align: left;
     padding: 2px;
 }
 
-table tr {
+table.p-table tr {
     border-bottom: 1px solid #f2f2f2;
 }
 

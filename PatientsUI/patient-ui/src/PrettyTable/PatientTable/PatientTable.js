@@ -66,32 +66,46 @@ class PrettyPatientTable extends React.Component {
             );
         }
         return (
-            <table class="patient-table">
+            <div>
+            <table className="pp-table">
+                <tbody>
                 <tr>
-                    <th>                </th>
-                    <th>  ID            </th>
-                    <th>  Last Updated  </th>
-                    <th>  Name          </th>
-                    <th>  Active        </th>
-                    <th>  Gender        </th>
-                    <th>  Date of Birth </th>
-                    <th>  Multiple Birth</th>
-                    <th>  Diseased      </th>
-                    <th>  Communication </th>
-                    <th>  Contact       </th>
-                    <th>  Marital Status</th>
+                    <th rowSpan="2">                </th>
+                    <th rowSpan="2">  Index         </th>
+                    <th colSpan="4">  Name          </th>
+                    <th rowSpan="2">  Active        </th>
+                    <th rowSpan="2">  Gender        </th>
+                    <th rowSpan="2">  Date of Birth </th>
+                    <th rowSpan="2">  Multiple Birth</th>
+                    <th rowSpan="2">  Diseased      </th>
+                    <th rowSpan="2">  Communication </th>
+                    <th colSpan="3">  Contact       </th>
+                    <th rowSpan="2">  Marital Status</th>
+                    <th rowSpan="2">  Last Updated  </th>
                 </tr>
-                {patients.map((patient) => {
+                <tr>
+                    <th>  Use          </th>
+                    <th>  Prefix       </th>
+                    <th>  First Name   </th>
+                    <th>  Family Name  </th>
+                    <th>  System        </th>
+                    <th>  Use           </th>
+                    <th>  Value         </th>
+                </tr>
+                {patients.map((patient, index) => {
                     let encountersArray = encounters_object[patient.resource.id];
                     return (
                         <Patient
                             patientResource = {patient.resource}
+                            patientIndex = {index}
                             encounters = {encountersArray}
                             observations_object = {observations_object}
                         />
                     );
                 })}
+                </tbody>
             </table>
+            </div>
         );
     }
 }

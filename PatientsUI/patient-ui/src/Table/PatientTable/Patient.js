@@ -16,6 +16,7 @@ class Patient extends React.Component {
             arrowClassName: "arrow-up",
         };
         this.toggleEncounters = this.toggleEncounters.bind(this);
+        this.getBoolean = this.getBoolean.bind(this);
     }
 
     toggleEncounters = () => {
@@ -27,6 +28,13 @@ class Patient extends React.Component {
             showEncounters : !this.state.showEncounters,
             arrowClassName: turn
         });
+    }
+
+    getBoolean = (content) => {
+        if (content === null) return null;
+        else if (content) return "true";
+        else if (!content) return "false";
+        else return null;
     }
 
     render() {
@@ -42,8 +50,8 @@ class Patient extends React.Component {
                     <td>{patientResource.active}</td>
                     <td>{patientResource.gender}</td>
                     <td>{patientResource.birthDate}</td>
-                    <td>{patientResource.multipleBirthBoolean}</td>
-                    <td>{patientResource.deceasedBoolean}</td>
+                    <td>{this.getBoolean(patientResource.multipleBirthBoolean)}</td>
+                    <td>{this.getBoolean(patientResource.deceasedBoolean)}</td>
                     <td>{<NestedTables object={ patientResource.communication} />}</td>
                     <td>{<NestedTables object={ patientResource.contact} />}</td>
                     <td>{<NestedTables object={ patientResource.maritalStatus} />}</td>

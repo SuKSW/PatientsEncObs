@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Observation from './Observation';
-import Requests from "../../Requests";
 import './ObservationTable.css';
 
 class ObservationTable extends React.Component {
@@ -19,7 +18,7 @@ class ObservationTable extends React.Component {
             return (
                 <div>Loading...</div>
             );
-        } else if ( typeof(observations) == "undefined" ) {
+        } else if ( typeof(observations) === "undefined" ) {
             return (
                 <div class="no-observations">No observations available</div>
             );
@@ -27,16 +26,22 @@ class ObservationTable extends React.Component {
         return (
             <table class="observation-table">
                 <tr>
-                    <th>  ID            </th>
-                    <th>  Last Updated  </th>
-                    <th>  Code          </th>
-                    <th>  Performer     </th>
-                    <th>  Body Site     </th>
-                    <th>  Component     </th>
-                    <th>  Effective Date</th>
-                    <th>  Interpretation</th>
-                    <th>  Category      </th>
-                    <th>  Status        </th>
+                    <th rowspan="2">  ID            </th>
+                    <th rowspan="2">  Last Updated  </th>
+                    <th rowspan="2">  Code          </th>
+                    <th rowspan="2">  Performer     </th>
+                    <th rowspan="2">  Body Site     </th>
+                    <th colspan="4">  Component      </th>
+                    <th rowspan="2">  Effective Date</th>
+                    <th rowspan="2">  Interpretation</th>
+                    <th rowspan="2">  Category      </th>
+                    <th rowspan="2">  Status        </th>
+                </tr>
+                <tr>
+                    <th>  Component       </th>
+                    <th>  Interpretation  </th>
+                    <th>  Value           </th>
+                    <th>  Unit            </th>
                 </tr>
                 {observations.map((observation) => {
                     return (

@@ -4,7 +4,7 @@ table {
 }
 
 table table.encounter-table table.observation-table th {
-    text-align: left;
+    text-align: right;
     height: 15px;
     padding-left: 8px;
     padding-right: 8px;
@@ -12,9 +12,9 @@ table table.encounter-table table.observation-table th {
 }
 
 table table.encounter-table table.observation-table td {
-    text-align: left;
-    padding: 2px;
+    text-align: right;
     background-color: #ffe6cc;
+    padding: 5px 8px 5px 8px;
 }
 
 table table.encounter-table table.observation-table tr:hover {

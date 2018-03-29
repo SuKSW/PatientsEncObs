@@ -1,14 +1,10 @@
+inital creation
+--------------------------
+
 nodejs, npm must be already there
 
 npm install -g create-react-app
 create-react-app patient-ui
-
 cd patient-ui
-npm start
-
-Note that the development build is not optimized.
-To create a production build, use npm run build.
-
-go into patient-ui
-npm install material-ui
 npm install axios
+npm start

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Encounter from './Encounter';
-import Requests from "../../Requests";
 import './EncounterTable.css';
 
 class EncounterTable extends React.Component {
@@ -20,7 +19,7 @@ class EncounterTable extends React.Component {
             return (
                 <div>Loading...</div>
             );
-        } else if ( typeof(encounters) == "undefined" ) {
+        } else if ( typeof(encounters) === "undefined" ) {
             return (
                 <div class="no-encounters">No encounters available</div>
             );

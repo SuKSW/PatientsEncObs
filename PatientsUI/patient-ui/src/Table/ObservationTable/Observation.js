@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 
 import NestedTables from '../NestedTables/NestedTables';
 import './ObservationTable.css';

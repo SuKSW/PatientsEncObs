@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 
 import ObservationTable from '../ObservationTable/ObservationTable';
-import NestedTables from '../NestedTables/NestedTables';
 import './EncounterTable.css';
 
 class Encounter extends React.Component {
@@ -15,7 +14,10 @@ class Encounter extends React.Component {
             arrowClassName: "arrow-up",
         };
         this.toggleObservations = this.toggleObservations.bind(this);
+        this.deepFind = this.deepFind.bind(this);
     }
+
+    deepFind = (p, o) => p.reduce((xs, x) => (xs && xs[x]) ? xs[x] : null, o)
 
     toggleObservations = () => {
         var turn = "arrow-down";
@@ -35,13 +37,13 @@ class Encounter extends React.Component {
             <tr onClick={this.toggleObservations} class="encounter-table">
                 <td><div class={arrowClassName}>&#9658;</div></td>
                 <td>{encounterResource.id}</td>
-                <td>{<NestedTables object={ encounterResource.type} />}</td>
+                <td>{this.deepFind(['type', 0, 'text'], encounterResource)}</td>
                 <td>{encounterResource.meta.lastUpdated}</td>
-                <td>{<NestedTables object={ encounterResource.reason} />}</td>
-                <td>{<NestedTables object={ encounterResource.diagnosis} />}</td>
-                <td>{<NestedTables object={ encounterResource.participant} />}</td>
+                <td>{this.deepFind(['reason', 0, 'text'], encounterResource)} </td>
+                <td>{this.deepFind(['diagnosis', 0, 'condition', 'reference'], encounterResource)} </td>
+                <td>{this.deepFind(['participant', 0, 'individual', 'reference'], encounterResource)} </td>
                 <td>{encounterResource.status}</td>
-                <td>{<NestedTables object={ encounterResource.period} />}</td>
+                <td>{this.deepFind(['period', 'start'], encounterResource)} </td>
             </tr>
             {showObservations &&
                 <tr>
