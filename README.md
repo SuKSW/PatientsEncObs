@@ -12,12 +12,14 @@ mvn clean spring-boot:run -Dserver.port=9000
 
 ### To start the client  
 (open another Command Prompt Terminal while inside the cloned directory - PatientsEncObs)  
-cd patient-ui  
+cd PatientsUI\patient-ui
+npm install  
 npm start
 
 ## Requirements
+Maven
 JDK 1.8  
-nodejs  
+Node.js  
 
 ## Technologies used
 Spring Framework  
